@@ -2,7 +2,6 @@ using BusinessSearch.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -21,7 +20,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
