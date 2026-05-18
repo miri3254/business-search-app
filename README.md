@@ -37,15 +37,6 @@ npm install
 npm start
 ```
 
-לאחר מכן ללחוץ:
-
-```txt
-w
-```
-
-כדי להריץ בדפדפן.
-
----
 
 # Supported Search Types
 
