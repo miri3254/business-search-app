@@ -6,6 +6,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var redisConnectionString = builder.Configuration.GetConnectionString("Redis");
+
+if (string.IsNullOrWhiteSpace(redisConnectionString))
+{
+    builder.Services.AddDistributedMemoryCache();
+}
+else
+{
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = redisConnectionString;
+    });
+}
+
 builder.Services.AddSingleton<BusinessService>();
 
 builder.Services.AddCors(options =>

@@ -16,13 +16,13 @@ public class BusinessService
         if (string.IsNullOrWhiteSpace(query))
             return [];
 
-        query = query.ToLower();
+        query = query.Trim();
 
         return _businesses
             .Where(b =>
-                b.Name.ToLower().Contains(query) ||
-                b.Category.ToLower().Contains(query) ||
-                b.City.ToLower().Contains(query))
+                b.Name.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                b.Category.Contains(query, StringComparison.OrdinalIgnoreCase) ||
+                b.City.Contains(query, StringComparison.OrdinalIgnoreCase))
             .ToList();
     }
 }
